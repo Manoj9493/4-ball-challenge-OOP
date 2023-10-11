@@ -4,21 +4,26 @@ public class MySketchOop extends PApplet {
 
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
+    int balls=4;
     public static void main(String[] args) {
         PApplet.main("MySketchOop");
         System.out.println("Sketch Using OOP Approach");
     }
 
-    Ellipse[] ellipses= new Ellipse[4];
+    Ellipse[] ellipses= new Ellipse[balls];
 
     @Override
     public void settings() {
         super.settings();
         size(WIDTH, HEIGHT);
-        ellipses[0] = new Ellipse(HEIGHT / 5, 1);
-        ellipses[1] = new Ellipse((HEIGHT / 5) * 2, 2);
-        ellipses[2] = new Ellipse((HEIGHT / 5) * 3, 3);
-        ellipses[3] = new Ellipse((HEIGHT / 5) * 4, 4);
+        get_ellipse();
+
+    }
+    public void get_ellipse(){
+        for(int i=0;i<balls;i++){
+            ellipses[i] = new Ellipse((HEIGHT/5)*(i+1), i+1);
+        }
+
     }
 
     @Override
